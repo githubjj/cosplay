@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>换装小游戏</title>
+    <title>奇迹暖暖</title>
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="Shortcut Icon" href="image/people/4399_17333972557.jpg" />
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <style>
@@ -38,10 +39,11 @@
         }
         li a{
             font-size: 35px;
+            color: #CFC8E1;
         }
         .tab-pane{
             width: 100%;
-            height: 250px;
+
             background-color: #E8EAFA;
         }
         .tab-pane img{
@@ -67,11 +69,14 @@
             background-color: #cfc8e1;
         }
         body{
-            background-color: #cec7e0;
+            background-color: #E8EAFA;
         }
     </style>
 </head>
 <body>
+<audio controls autoplay="autoplay" hidden="hidden" loop="loop" >
+    <source  src="MP3/sound1.mp3" type="audio/mpeg">
+</audio>
 <div class="nor">
     <div class="hair">
         <img src="image/hair/3002_1.png">
@@ -97,7 +102,7 @@
 
     </ul>
 </div>
-<div style="height: 265px" class="tab-content">
+<div  class="tab-content">
     <div class="tab-pane active" id="name1">
         <div class="tab1">
             <div onclick="hair1()">
@@ -105,6 +110,9 @@
             </div>
             <div class="tab1-1">
                 <img src="image/hair/3141_1.png">
+            </div>
+            <div class="tab1-4">
+                <img src="image/hair/3002_1.png">
             </div>
         </div>
     </div>
@@ -116,6 +124,9 @@
             <div class="tab1-2">
                 <img src="image/coat/3508_1.png">
             </div>
+            <div class="tab1-5">
+                <img src="image/people/3361_1.png">
+            </div>
         </div>
     </div>
     <div class="tab-pane " id="name3">
@@ -126,34 +137,55 @@
             <div class="tab1-3">
                 <img src="image/skirt/3625_1.png">
             </div>
+            <div class="tab1-6">
+                <img src="image/people/3362_1.png">
+            </div>
         </div>
     </div>
 </div>
 <script>
-function hair1() {
-    $(".hair img").attr('src',"image/hair/3106_1.png")
-    $(".hair").css({"margin-left": "52px","position": "absolute","top": "38px"});
-};
-function hair2() {
-    $(".coat img").attr('src',"image/coat/3441_1.png")
-    $(".coat").css({"margin-left": "-4px","position": "relative","top": "23px"});
-};
-function hair3() {
-    $(".skirt img").attr('src',"image/skirt/3062_1.png")
-    $(".skirt").css({"margin-left": "40px","position": "relative","top": "-60px"});
-};
-$(".tab1-1").click(function () {
-    $(".hair img").attr('src',"image/hair/3141_1.png")
-    $(".hair").css({"margin-left": "-141px","position": "absolute","top": "44px"});
-})
-$(".tab1-2").click(function () {
-    $(".coat img").attr('src',"image/coat/3508_1.png")
-    $(".coat").css({"margin-left": "35px","position": "relative","top": "-4px"});
-})
-$(".tab1-3").click(function () {
-    $(".skirt img").attr('src',"image/skirt/3625_1.png")
-    $(".skirt").css({"margin-left": "-95px","position": "relative","top": "-58px"});
-})
+    var hairimg = $(".hair img");
+    var hari = $(".hair");
+    var coatimg = $(".coat img");
+    var coat = $(".coat");
+    var skirtimg = $(".skirt img");
+    var skirt = $(".skirt");
+    function hair1() {
+        hairimg.attr('src',"image/hair/3106_1.png")
+        hari.css({"margin-left": "52px","position": "absolute","top": "38px"});
+    };
+    function hair2() {
+        coatimg.attr('src',"image/coat/3441_1.png")
+        coat.css({"margin-left": "-4px","position": "relative","top": "23px"});
+    };
+    function hair3() {
+        skirtimg.attr('src',"image/skirt/3062_1.png")
+        skirt.css({"margin-left": "40px","position": "relative","top": "-60px"});
+    };
+    $(".tab1-1").click(function () {
+        hairimg.attr('src',"image/hair/3141_1.png")
+        hari.css({"margin-left": "-141px","position": "absolute","top": "44px"});
+    })
+    $(".tab1-2").click(function () {
+        coatimg.attr('src',"image/coat/3508_1.png")
+        coat.css({"margin-left": "35px","position": "relative","top": "-4px"});
+    })
+    $(".tab1-3").click(function () {
+        skirtimg.attr('src',"image/skirt/3625_1.png")
+        skirt.css({"margin-left": "-95px","position": "relative","top": "-58px"});
+    })
+    $(".tab1-4").click(function () {
+        hairimg.attr('src',"image/hair/3002_1.png")
+        hari.css({"margin-left": "13px","position": "absolute","top": "33px"})
+    })
+    $(".tab1-5").click(function () {
+        coatimg.attr('src',"image/people/3361_1.png")
+        coat.css({"margin-left": "35px","position": "relative","top": "-6px"})
+    })
+    $(".tab1-6").click(function () {
+        skirtimg.attr('src',"image/people/3362_1.png")
+        skirt.css({"margin-left": "43px","position": "relative","top": "-50px"})
+    })
 </script>
 </body>
 </html>
