@@ -19,9 +19,7 @@
 
         .nor {
             width: 100%;
-            padding: 0 2%;
-            position: relative;
-            top: 25rem;
+            padding: 15rem 2%;
         }
 
         ul li {
@@ -123,11 +121,14 @@
 
         .norul li:nth-of-type(15) {
             background: url("image/cf/lottly1.png") -287px 336px;
-            top: 364px;
+            top: 284px;
             left: 317px;
-
         }
-
+        .norul li:nth-of-type(16) {
+            background: url("image/cf/sp.png") -863px -863px;
+            top: 448px;
+            left: 320px;
+        }
         .active:after {
             position: absolute;
             top: 0;
@@ -158,17 +159,76 @@
         <li></li>
         <li></li>
         <li style="width: 300px;height: 80px" onclick="cj()"></li>
+        <li style="width: 300px;height: 80px" onclick="shilian()"></li>
     </ul>
 </div>
 <script>
     var i = 0;
     var index = 0;
+    var index10 = [];
     var name = '';
     var ali = document.querySelectorAll('li');
+    //十连抽
+    function shilian() {
+        index = null;
+        index10 = [];
+        for (let j = 0;j<10;j++){
+            index = Math.floor(Math.random() * 30)
+            console.log(index)
+            switch (index) {
+                case 0:
+                    index10.push('传说暗裔（永久）')
+                    break;
+                case 1:
+                    index10.push('王者魅影（永久）')
+                    break;
+                case 2:
+                    index10.push('王者之心觉醒版（永久）')
+                    break;
+                case 3:
+                    index10.push('王者之势觉醒版（永久）')
+                    break;
+                case 4:
+                    index10.push('Scar Light-白虎（永久）')
+                    break;
+                case 5:
+                    index10.push('加特林-炼狱（永久）')
+                    break;
+                case 6:
+                    index10.push('唐刀-九五至尊（永久）')
+                    break;
+                // case 7:
+                //     index10.push('1000CF点')
+                //     break;
+                case 8:
+                    index10.push('5000CF点')
+                    break;
+                case 9:
+                    index10.push('10000CF点')
+                    break;
+                case 10:
+                    index10.push('白泽玩偶兑换券X1')
+                    break;
+                case 11:
+                    index10.push('RPK-盘龙（永久）')
+                    break;
+                case 12:
+                    index10.push('黄龙戒（永久）')
+                    break;
+                case 13:
+                    index10.push('M4A1-黑骑士（永久）')
+                    break;
+                default:
+                    index10.push('1000CF点')
+                    break;
+            }
+        };
+        alert(index10.join(','))
+    }
 
     function cj() {
         index = null;
-        index = Math.floor(Math.random() * 13)
+        index = Math.floor(Math.random() * 30)
         ti(10);
         switch (index) {
             case 0:
@@ -192,11 +252,11 @@
             case 6:
                 name = '唐刀-九五至尊（永久）'
                 break;
-            case 7:
-                name = '1000CF点'
-                break;
+            // case 7:
+            //     name = '1000CF点'
+            //     break;
             case 8:
-                name = '5000'
+                name = '5000CF点'
                 break;
             case 9:
                 name = '10000CF点'
@@ -213,24 +273,27 @@
             case 13:
                 name = 'M4A1-黑骑士（永久）'
                 break;
-
+            default:
+                name = '1000CF点'
+                index = 7
+                break;
         }
         console.log(index)
-        
+
     }
 
     function ti(time) {
 
-        for (var j = 0; j < ali.length; j++) {
+        for (var j = 0; j < ali.length-1; j++) {
             ali[j].classList.remove('active');
         }
         i++;
         //计算转圈次数
-        if (i >= ali.length - 1) {
+        if (i >= ali.length - 2) {
             i = 0;
 
         }
-        
+
         if (time > 300) {
             if (i-1 !== index) {
                 timer = setTimeout(() => {
@@ -246,8 +309,8 @@
                 ti(time = time + time * 0.05)
             }, time);
         }
-        ali[i].classList.add('active');
 
+        ali[i].classList.add('active');
     }
 
 
