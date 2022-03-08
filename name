@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点名器</title>
+    <style>
+        .name{
+            margin-top: 150px;
+            margin-left: 50%;
+            margin-right: 50%;
+        }
+        .name button{
+            width: 100px;
+            height: 50px;
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2></h2>
+    </div>
+    <div class="name">
+        <button onclick="sj()">点名</button>
+    </div>
+    
+<script>
+    var student = ["顾鑫其","王世超","李要甫","刘威","李子豪","朱桃林"
+    ,"于洋","陈帅兵","刘冰冰","张小刚","刘书良","刘震","张西斋",
+    "王杰","徐冰","陈博","宋方愉","高俨","李子轩","丁照阳","白畅凯"
+,"白建华","高博宇","崔絮非","刘亚宁","魏家晴","韩梦琛","李志文","代冲冲","程安东",
+"李帅康","李梦迪","王菲","范留洋","路长城","王赵路","杨雨彤","韩鹏杰"
+,"李梦瑶","秦亚妮","秦亚彤","张银萍","杨涵清","刘丽霞","高盼盼","贾欣莹",
+"周晓悦","丁冰迪","刘梦茹","郭佳鑫","张宇浩","张震北","蔡婷","王笑颜","陈辛家","刘澳",
+"聂培源","于利杰","姚雪莹","史俊杰","李文奇","邵新潮","李晓燕","盈佳","陈怡非",
+"侯宛如","曹万棋","徐荣雪","李子怡","樊亚超","常世豪","唐嘉元"];
+    var index;
+    console.log(student)
+     function sj(){
+         index = Math.floor(Math.random()*73)
+         console.log(student[index])
+         alert("恭喜"+student[index]+"同学回答问题")
+     };
+    
+</script>
+</body>
+</html>
