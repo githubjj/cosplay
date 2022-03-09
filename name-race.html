@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #div1{
+
+        
+        width: 180px;
+        
+        margin: auto;
+        margin-top: 150px;
+        border: 2px solid #f8f8f8;
+
+        overflow: hidden;   /*必须设置该属性*/
+
+    }
+
+    .child{
+
+        width: 100%;
+        
+        height: 100%;
+        
+        text-align: center;
+        
+        line-height: 30px;
+
+    }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+        var div1;           //外层div
+
+var height = 30;    //外层div高度
+
+var rollIndex = 0;  //当前滚动的索引
+
+var millisec = 50;    //滚动间隔时间（毫秒）
+
+var intervalIds = new Array();  //计时器 id 数组
+
+var datas = ["顾鑫其","王世超","李要甫","刘威","李子豪","朱桃林"
+    ,"于洋","陈帅兵","刘冰冰","张小刚","刘书良","刘震","张西斋",
+    "王杰","徐冰","陈博","宋方愉","高俨","李子轩","丁照阳","白畅凯"
+,"白建华","高博宇","崔絮非","刘亚宁","魏家晴","韩梦琛","李志文","代冲冲","程安东",
+"李帅康","李梦迪","王菲","范留洋","路长城","王赵路","杨雨彤","韩鹏杰"
+,"李梦瑶","秦亚妮","秦亚彤","张银萍","杨涵清","刘丽霞","高盼盼","贾欣莹",
+"周晓悦","丁冰迪","刘梦茹","郭佳鑫","张宇浩","张震北","蔡婷","王笑颜","陈辛家","刘澳",
+"聂培源","于利杰","姚雪莹","史俊杰","李文奇","邵新潮","李晓燕","盈佳","陈怡非",
+"侯宛如","曹万棋","徐荣雪","李子怡","樊亚超","常世豪","唐嘉元"];
+
+ 
+
+window.onload = function() {
+
+    div1 = document.getElementById("div1");
+
+    div1.style.height = height + "px";
+
+    //鼠标进入停止滚动
+
+    div1.onmouseover = function() {
+
+        clearInterval(intervalIds[0]);
+
+    }
+
+    //鼠标离开开始滚动
+
+    div1.onmouseout = function() {
+
+        intervalIds[0] = setInterval("addItem()", millisec);
+
+    }
+
+    addItem();  //首先加载第一项
+
+    intervalIds[0] = setInterval("addItem()", millisec);
+
+}
+
+ 
+
+//添加滚动项
+
+function addItem(){
+
+    var content = datas[rollIndex];
+
+    console.log("滚动item: " + rollIndex)
+
+    if(div1.childNodes.length <= 1) {
+
+        var div = document.createElement("div");
+
+        div.setAttribute("class", "child");
+
+        div.innerHTML = content;
+
+        div1.appendChild(div);
+
+        //设置两个 div 的背景色
+
+        // if(rollIndex % 2 == 0)
+
+        //     div.style.background = "#EEE9E9";
+
+        // else
+
+        //     div.style.background = "#F0FFF0";
+
+    }
+
+    else {
+
+        div1.childNodes[0].innerHTML = content;
+
+        div1.appendChild(div1.childNodes[0]);
+
+        div1.scrollTop = 0; //兼容Firefox
+
+    }
+
+    rollIndex++;
+
+    rollIndex = rollIndex < datas.length ? rollIndex : 0;
+
+    if(div1.childNodes.length > 1) {
+
+        clearInterval(intervalIds[1]);
+
+        intervalIds[1] = setInterval("setScroll()", 20);
+
+    }
+
+}
+
+ 
+
+//设置外层div.scrollTop
+
+function setScroll(){
+
+    div1.scrollTop++;
+
+    if(div1.scrollTop >= height) {
+
+        clearInterval(intervalIds[1]);
+
+        console.log("stop");
+
+    }               
+
+}
+    </script>
+</body>
+</html>
